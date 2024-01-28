@@ -183,7 +183,7 @@ async function run() {
 		if (!playingSameThing(hosts)) {
 			console.log("Not all hosts are playing the same thing.\n" + hosts.map((host) => `- ${host.hoststring}: ${host.nowPlayingString()}`).join("\n"));
 			await wait(1e3);
-			continue;
+			process.exit(0);//continue;
 		}
 
 		// Update sync states
@@ -243,7 +243,7 @@ async function run() {
 			}));
 
 			console.log("Ready");
-			continue;
+			process.exit(0);//continue;
 		}
 
 		// If exactly one is unsynced,
